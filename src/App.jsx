@@ -12,7 +12,7 @@ export default function App() {
 	const dialogArea = useRef();
 
 	useEffect(() => {
-		(async function dose() {
+		(async () => {
 			await dispatch(loadNextStack());
 			const observer = new IntersectionObserver((entries) => {
 				if (entries[0].isIntersecting) {
