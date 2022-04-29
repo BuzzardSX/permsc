@@ -9,7 +9,7 @@ export default function App() {
 
 	const dispatch = useDispatch();
 
-	const loadingArea = useRef();
+	const dialogArea = useRef();
 
 	useEffect(() => {
 		(async function dose() {
@@ -19,7 +19,7 @@ export default function App() {
 					dispatch(loadNextStack());
 				}
 			}, { threshold: [ 0.1 ] });
-			observer.observe(loadingArea.current);
+			observer.observe(dialogArea.current);
 		})();
 	}, []);
 
@@ -27,7 +27,7 @@ export default function App() {
 		<Container>
 			<CssBaseline />
 			<RepositoriesList />
-			<Stack ref={loadingArea} alignItems="center" paddingY={7}>
+			<Stack ref={dialogArea} alignItems="center" paddingY={7}>
 				{isLimitReached ? <Alert severity="info">Limit reached</Alert> : <CircularProgress />}
 			</Stack>
 		</Container>
